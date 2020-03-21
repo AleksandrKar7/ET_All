@@ -2,13 +2,13 @@
 
 using ET_1_ChessBoard;
 using ET_1_ChessBoard.Logics.Boards;
-using NUnit.Framework;
+using Xunit;
 
-namespace ET_1_UnitTests.BoardTest
+namespace ET_1_UnitTest
 {
-    class BoardTests
+    public class BoardTests
     {
-        [Test]
+        [Fact]
         public void InitBoard_LengthIsNegative_OverflowException()
         {
             //arrange
@@ -16,12 +16,12 @@ namespace ET_1_UnitTests.BoardTest
             Type expected = new OverflowException().GetType();
 
             //act
-            TestDelegate actual = () => board.InitCells();
 
             //assert
-            Assert.Throws(expected, actual);
+            Assert.Throws<OverflowException>(() => board.InitCells());
         }
-        [Test]
+
+        [Fact]
         public void InitBoard_HeightIsNegative_OverflowException()
         {
             //arrange
@@ -29,24 +29,23 @@ namespace ET_1_UnitTests.BoardTest
             Type expected = new OverflowException().GetType();
 
             //act
-            TestDelegate actual = () => board.InitCells();
 
             //assert
-            Assert.Throws(expected, actual);
+            Assert.Throws<OverflowException>(() => board.InitCells());
         }
 
-        [Test]
+        [Fact]
         public void InitBoard_OneLineFiveCells_CorrectColor()
         {
             //arrange
             int rows = 1;
             int columns = 5;
             Cell[,] expected = new Cell[rows, columns];
-            expected[0, 0] = new Cell(1, 1, Cell.CellColor.White);
-            expected[0, 1] = new Cell(1, 2, Cell.CellColor.Black);
-            expected[0, 2] = new Cell(1, 3, Cell.CellColor.White);
-            expected[0, 3] = new Cell(1, 4, Cell.CellColor.Black);
-            expected[0, 4] = new Cell(1, 5, Cell.CellColor.White);
+            expected[0, 0] = new Cell(0, 0, Cell.CellColor.White);
+            expected[0, 1] = new Cell(0, 1, Cell.CellColor.Black);
+            expected[0, 2] = new Cell(0, 2, Cell.CellColor.White);
+            expected[0, 3] = new Cell(0, 3, Cell.CellColor.Black);
+            expected[0, 4] = new Cell(0, 4, Cell.CellColor.White);
 
             //act
             Board actual = new Board(rows, columns);
@@ -54,15 +53,16 @@ namespace ET_1_UnitTests.BoardTest
 
             //assert
             bool result = true;
-            for (int i = 0; i < actual.Cells.GetLength(0); i++)
+            for (int column = 0; column < columns; column++)
             {
-                if (actual.Cells[0, i].Color != expected[0, i].Color)
+                if (actual[0, column].Color != expected[0, column].Color)
                 {
                     result = false;
                     break;
                 }
             }
-            Assert.IsTrue(result);
+
+            Assert.True(result);
         }
     }
 }

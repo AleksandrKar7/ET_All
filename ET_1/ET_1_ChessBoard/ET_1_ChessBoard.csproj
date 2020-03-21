@@ -51,9 +51,6 @@
     <Compile Include="Data\Parser.cs" />
     <Compile Include="Data\Validator.cs" />
     <Compile Include="Logics\Boards\Board.cs" />
-    <Compile Include="Logics\Boards\ChessBoard.cs" />
-    <Compile Include="Logics\Cells\ChessCell.cs" />
-    <Compile Include="Logics\Figures\ChessFigure.cs" />
     <Compile Include="Logics\Printers\ConsolePrinter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

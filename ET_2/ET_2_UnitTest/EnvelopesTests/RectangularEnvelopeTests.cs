@@ -1,13 +1,11 @@
-﻿using System;
+﻿using ET_2_Envelopes;
+using Xunit;
 
-using NUnit.Framework;
-using ET_2_Envelopes;
-
-namespace ET_2_UnitTests.EnvelopesTests
+namespace ET_2_UnitTest.EnvelopesTests
 {
-    class RectangularEnvelopeTests
+    public class RectangularEnvelopeTests
     {
-        [Test]
+        [Fact]
         public void DoesFits_TryPutSmallToBig_True()
         {
             //arrange
@@ -23,9 +21,10 @@ namespace ET_2_UnitTests.EnvelopesTests
             result = big.DoesFits(small);
 
             //assert
-            Assert.IsTrue(result);
+            Assert.True(result);
         }
-        [Test]
+
+        [Fact]
         public void DoesFits_TryPutBigToSmall_False()
         {
             //arrange
@@ -41,10 +40,10 @@ namespace ET_2_UnitTests.EnvelopesTests
             result = small.DoesFits(big);
 
             //assert
-            Assert.IsFalse(result);
+            Assert.False(result);
         }
 
-        [Test]
+        [Fact]
         public void DoesFits_TryPutSmallRoundToBigRectangular_True()
         {
             //arrange
@@ -60,9 +59,10 @@ namespace ET_2_UnitTests.EnvelopesTests
             result = big.DoesFits(small);
 
             //assert
-            Assert.IsTrue(result);
+            Assert.True(result);
         }
-        [Test]
+
+        [Fact]
         public void DoesFits_TryPutBigRoundToSmallRectangular_False()
         {
             //arrange
@@ -78,7 +78,7 @@ namespace ET_2_UnitTests.EnvelopesTests
             result = small.DoesFits(big);
 
             //assert
-            Assert.IsFalse(result);
+            Assert.False(result);
         }
     }
 }

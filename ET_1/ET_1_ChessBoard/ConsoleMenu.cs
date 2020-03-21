@@ -37,23 +37,10 @@ namespace ET_1_ChessBoard
                 int result = AskMenuItem("Choose board type",
                     new string[]{ "Empty board", "Chess board with pieces"});
 
-                switch (result)
-                {
-                    case 1:
-                        Board board = new Board(inputData.NumberOfRows,
-                            inputData.NumberOfColumns);
-                        board.InitCells();
-                        ConsolePrinter.PrintEmptyBoard(board);
-                        break;
-
-                    case 2:
-                        ChessBoard chessBoard = new ChessBoard(
-                            inputData.NumberOfRows, inputData.NumberOfColumns);
-                        chessBoard.InitCells();
-                        chessBoard.InitChessFigures();
-                        ConsolePrinter.PrintChessBoard(chessBoard);
-                        break;
-                }   
+                Board board = new Board(inputData.NumberOfRows,
+                    inputData.NumberOfColumns);
+                board.InitCells();
+                ConsolePrinter.PrintEmptyBoard(board);
 
                 if (AskBoolValue("Do you want to continue?", 
                     new string[] { "YES", "Y" }))
