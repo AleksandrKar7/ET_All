@@ -47,7 +47,5 @@ namespace ET_3_Triangles
                 (halfPerimeter - SideB) *
                 (halfPerimeter - SideC));
         }
-
-
     }
 }

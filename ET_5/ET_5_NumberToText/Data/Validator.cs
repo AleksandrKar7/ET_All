@@ -5,11 +5,6 @@ namespace ET_5_NumberToText.Data
 {
     public class Validator : BaseValidator
     {
-        public Validator(ILog logger) : base(logger)
-        {
-
-        }
-
         public override bool IsValid(string[] args)
         {
             return IsEmptyArr(args)

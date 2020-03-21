@@ -1,53 +1,49 @@
 ﻿using System;
 
 using ET_3_Triangles.Data;
-using NUnit.Framework;
+using Xunit;
 
-namespace ET_3_UnitTests.Data
+namespace ET_3_UnitTest.DataTests
 {
-    class ParserTests
+    public class ParserTests
     {
-        [Test]
+        [Fact]
         public void Parse_Null_NullReferenceException()
         {
             //arrange
             string[] args = null;
-            Type expected = new NullReferenceException().GetType();
 
             //act
-            TestDelegate actual = () => Parser.Parse(args);
 
             //assert
-            Assert.Throws(expected, actual);
+            Assert.Throws<NullReferenceException>(() => Parser.Parse(args));
         }
-        [Test]
+
+        [Fact]
         public void Parse_IncorrectCountParams_ArgumentException()
         {
             //arrange
             string[] args = new string[InputData.CountParams + 1];
-            Type expected = new ArgumentException().GetType();
 
             //act
-            TestDelegate actual = () => Parser.Parse(args);
 
             //assert
-            Assert.Throws(expected, actual);
+            Assert.Throws<ArgumentException>(() => Parser.Parse(args));
         }
-        [Test]
+
+        [Fact]
         public void Parse_EmptyArr_ArgumentNullException()
         {
             //arrange
             string[] args = new string[InputData.CountParams];
-            Type expected = new ArgumentNullException().GetType();
 
             //act
-            TestDelegate actual = () => Parser.Parse(args);
 
             //assert
-            Assert.Throws(expected, actual);
+            Assert.Throws<ArgumentNullException>(() => Parser.Parse(args));
         }
 
-        [Test]
+        [Fact]
         public void Parse_AllCorrect_CorrectLengthFirst2()
         {
             //arrange
@@ -59,9 +55,10 @@ namespace ET_3_UnitTests.Data
             string actual = Parser.Parse(args).Name;
 
             //assert
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
-        [Test]
+
+        [Fact]
         public void Parse_AllCorrect_CorrectHeightFirst3()
         {
             //arrange
@@ -73,9 +70,10 @@ namespace ET_3_UnitTests.Data
             double actual = Parser.Parse(args).SideA;
 
             //assert
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
-        [Test]
+
+        [Fact]
         public void Parse_AllCorrect_CorrectLengthSecond4()
         {
             //arrange
@@ -87,9 +85,10 @@ namespace ET_3_UnitTests.Data
             double actual = Parser.Parse(args).SideB;
 
             //assert
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
-        [Test]
+
+        [Fact]
         public void Parse_AllCorrect_CorrectHeightSecond1()
         {
             //arrange
@@ -101,47 +100,43 @@ namespace ET_3_UnitTests.Data
             double actual = Parser.Parse(args).SideC;
 
             //assert
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
-        [Test]
+        [Fact]
         public void ParseRange_Null_NullReferenceException()
         {
             //arrange
             string[] args = null;
-            Type expected = new NullReferenceException().GetType();
 
             //act
-            TestDelegate actual = () => Parser.ParseRange(args);
 
             //assert
-            Assert.Throws(expected, actual);
+            Assert.Throws<NullReferenceException>(() =>Parser.ParseRange(args));
         }
-        [Test]
+
+        [Fact]
         public void ParseRange_IncorrectCountParams_ArgumentException()
         {
             //arrange
             string[] args = new string[InputData.CountParams + 1];
-            Type expected = new ArgumentException().GetType();
 
             //act
-            TestDelegate actual = () => Parser.ParseRange(args);
 
             //assert
-            Assert.Throws(expected, actual);
+            Assert.Throws<ArgumentException>(() => Parser.ParseRange(args));
         }
-        [Test]
+
+        [Fact]
         public void ParseRange_EmptyArr_ArgumentNullException()
         {
             //arrange
             string[] args = new string[InputData.CountParams];
-            Type expected = new ArgumentNullException().GetType();
 
             //act
-            TestDelegate actual = () => Parser.ParseRange(args);
 
             //assert
-            Assert.Throws(expected, actual);
+            Assert.Throws<ArgumentNullException>(() => Parser.ParseRange(args));
         }
     }
 }

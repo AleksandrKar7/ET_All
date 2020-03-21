@@ -9,7 +9,7 @@ namespace ET_3_Triangles
 {
     public static class FiguresSorter
     {
-        public static void SortByArea(ref IFigure[] figures)
+        public static void SortByArea(this IFigure[] figures)
         {
             int i = 0;
             int j = 0;

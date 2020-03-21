@@ -15,8 +15,8 @@ namespace ET_5_NumberToText
 
         public ProgramController()
         {
-            validator = new Validator(Logger.Log);
-            consoleUI = new ConsoleUI(Logger.Log);
+            validator = new Validator();
+            consoleUI = new ConsoleUI();
         }
 
         public void ExecuteProgramm(string[] args)
@@ -44,8 +44,8 @@ namespace ET_5_NumberToText
 
                     continue;
                 }
-
-                InputDTO inputDTO = Parser.Parse(args);
+                Parser parser = new Parser(validator);
+                InputDTO inputDTO = parser.Parse(args);
                 NumberToTextConverter converter;
 
                 switch (inputDTO.Algorithm)

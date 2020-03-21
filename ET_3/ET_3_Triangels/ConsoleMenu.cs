@@ -39,7 +39,8 @@ namespace ET_3_Triangles
                 InputData[] inputData = Parser.ParseRange(inputParams);
 
                 IFigure[] figures = Parser.GetArrayTriangel(inputData);
-                FiguresSorter.SortByArea(ref figures);
+                figures.SortByArea();
+
                 foreach (IFigure figure in figures)
                 {
                     Console.WriteLine(String.Format("[{0}]: {1}",

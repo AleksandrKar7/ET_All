@@ -1,13 +1,13 @@
 ﻿using System;
 
 using ET_3_Triangles;
-using NUnit.Framework;
+using Xunit;
 
-namespace ET_3_UnitTests.Logics
+namespace ET_3_UnitTest.Logics
 {
-    class TriangelTests
+    public class TriangleTests
     {
-        [Test]
+        [Fact]
         public void IsRealTriangel_NotRealTriangel_False()
         {
             //arrange
@@ -18,9 +18,10 @@ namespace ET_3_UnitTests.Logics
             result = triangel.IsRealTriangel();
 
             //assert
-            Assert.IsFalse(result);
+            Assert.False(result);
         }
-        [Test]
+
+        [Fact]
         public void IsRealTriangel_RealTriangel_True()
         {
             //arrange
@@ -31,10 +32,10 @@ namespace ET_3_UnitTests.Logics
             result = triangel.IsRealTriangel();
 
             //assert
-            Assert.IsTrue(result);
+            Assert.True(result);
         }
 
-        [Test]
+        [Fact]
         public void GetArea_NotRealTriangel_NaN()
         {
             //arrange
@@ -45,10 +46,11 @@ namespace ET_3_UnitTests.Logics
             result = triangel.GetArea();
 
             //assert
-            Assert.IsTrue(Double.IsNaN(result));
+            Assert.True(Double.IsNaN(result));
         }
-        [Test]
-        public void GetArea_Triangel333_3p89()
+
+        [Fact]
+        public void GetArea_Triangel333_3p897()
         {
             //arrange
             Triangle triangel = new Triangle("Test", 3, 3, 3);
@@ -56,9 +58,10 @@ namespace ET_3_UnitTests.Logics
 
             //act
             double actual = triangel.GetArea();
+            actual = Math.Round(actual, 3);
 
             //assert
-            Assert.AreEqual(expected, actual, 0.01);
+            Assert.Equal(expected, actual);
         }
     }
 }
