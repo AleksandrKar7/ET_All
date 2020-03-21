@@ -78,6 +78,7 @@ namespace ET_4_FileParser
                         case InputData.ProgramMode.ReplaceStr:
                             parser.ReplaceLines(inputData.TargetStr, 
                                 inputData.ReplaceStr);
+                            parser.ReplaceAndDeleteTempFile();
                             break;
                     }
                 }

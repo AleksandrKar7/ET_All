@@ -13,8 +13,7 @@ namespace ET_3_UnitTest.Logics.LogicTests
             //arrange
             IFigure[] actual = null;
 
-            //act
-            
+            //act            
 
             //assert
             Assert.Throws<NullReferenceException>(() => actual.SortByArea());

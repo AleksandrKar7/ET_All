@@ -12,7 +12,7 @@ namespace ET_4_FileParser
             get { return log; }
         }
 
-        public static void InitLogger()
+        static Logger()
         {
             XmlConfigurator.Configure();
         }

@@ -12,7 +12,6 @@ namespace ET_4_FileParser
     {
         static void Main(string[] args)
         {
-            Logger.InitLogger();
             Logger.Log.Info("Program started");
             ConsoleMenu.ShowConsoleMenu(args);
         }

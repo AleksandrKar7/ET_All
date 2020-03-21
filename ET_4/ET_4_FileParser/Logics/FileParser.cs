@@ -7,13 +7,18 @@ using System.Threading.Tasks;
 
 namespace ET_4_FileParser.Logics
 {
-    class FileParser : IDisposable
+    public class FileParser : IFileLinesSearcher
+        , IFileLinesReplacer, IDisposable
     {
+        #region private
+
         private StreamReader reader;
         private StreamWriter writer;
         private string mainFilePath;
         private string tempFilePath = "Test";
-         
+
+        #endregion
+
         public void Dispose()
         {
             reader.Dispose();
@@ -42,12 +47,17 @@ namespace ET_4_FileParser.Logics
 
         public string[] FindLines(string target)
         {
-            Logger.Log.DebugFormat("FileParser.OpenFile " +
+            return FindLines(reader, target);
+        }
+
+        public string[] FindLines(StreamReader reader, string target)
+        {
+            Logger.Log?.DebugFormat("FileParser.OpenFile " +
                 "Start finding a line ({0}) in file ", target);
 
             if (reader == null)
             {
-                Logger.Log.Error("FileParser.FindLines " +
+                Logger.Log?.Error("FileParser.FindLines " +
                     "File not open");
 
                 throw new InvalidOperationException("The file not open. " +
@@ -55,15 +65,15 @@ namespace ET_4_FileParser.Logics
             }
             if (reader.EndOfStream)
             {
-                Logger.Log.Error("FileParser.FindLines " +
-                    "File already read");
+                Logger.Log.Info("FileParser.ReplaceLines " +
+                    "File already read. Set reader.BaseStream.Position = 0");
 
-                throw new InvalidDataException("File already read. " +
-                    "Use OpenFile() again");
+                reader.BaseStream.Position = 0;
             }
-            
+
             List<string> matchStrs = new List<string>();
             string temp;
+
             while (!reader.EndOfStream)
             {
                 temp = reader.ReadLine();
@@ -73,7 +83,7 @@ namespace ET_4_FileParser.Logics
                 }
             }
 
-            Logger.Log.InfoFormat("FileParser.OpenFile " +
+            Logger.Log?.InfoFormat("FileParser.OpenFile " +
                 "({0}) lines found", matchStrs.Count);
 
             return matchStrs.ToArray();
@@ -81,8 +91,13 @@ namespace ET_4_FileParser.Logics
 
         public void ReplaceLines(string target, string newStr)
         {
-            Logger.Log.DebugFormat("FileParser.ReplaceLines " +
-                "Start replacing a line ({0}) to ({1}) in file ",
+            ReplaceLines(reader, writer, target, newStr);
+        }
+
+        public void ReplaceLines(StreamReader reader, StreamWriter writer, string target, string newStr)
+        {
+            Logger.Log.DebugFormat("FileParser.ReplaceLines " 
+                + "Start replacing a line ({0}) to ({1}) in file ",
                 target, newStr);
 
             if (reader == null || writer == null)
@@ -96,15 +111,13 @@ namespace ET_4_FileParser.Logics
             if (reader.EndOfStream)
             {
                 Logger.Log.Error("FileParser.ReplaceLines " +
-                    "File already read");
-
-                throw new InvalidDataException("File already read. " +
-                    "Use OpenFile() again");
+                    "File already read. Set reader.BaseStream.Position = 0");
+                reader.BaseStream.Position = 0;
             }
 
             string temp;
             while (!reader.EndOfStream)
-            {               
+            {
                 temp = reader.ReadLine();
                 temp = temp.Replace(target, newStr);
                 writer.WriteLine(temp);
@@ -112,11 +125,15 @@ namespace ET_4_FileParser.Logics
 
             reader.Close();
             writer.Close();
-            File.Copy(tempFilePath, mainFilePath, true);
-            File.Delete(tempFilePath);
 
             Logger.Log.Info("FileParser.OpenFile " +
                 "strings replaced successfully");
+        }
+
+        public void ReplaceAndDeleteTempFile()
+        {
+            File.Copy(tempFilePath, mainFilePath, true);
+            File.Delete(tempFilePath);
         }
     }
 }
