@@ -6,26 +6,22 @@ namespace ET_6_LuckyTicket.Logics.Factory
     {
         public LuckyTicketDeterminator CreateDeterminator(string name)
         {
-            if(name == "Moskow")
+            if(name == null)
+            {
+                return null;
+            }
+
+            name = name.ToLower();
+            if(name == "moskow")
             {
                 return new MoskowLuckyTicketDeterminator();
             }
-            if (name == "Piter")
+            if (name == "piter")
             {
                 return new PiterLuckyTicketDeterminator();
             }
 
             return null;
-
-            //LuckyTicketDeterminator result;
-            //if (MoskowLuckyTicketDeterminator.IsHisName(name))
-            //{
-            //    return new MoskowLuckyTicketDeterminator();
-            //}
-            //if (PiterLuckyTicketDeterminator.IsHisName(name))
-            //{
-            //    return new PiterLuckyTicketDeterminator();
-            //}
         }
     }
 }

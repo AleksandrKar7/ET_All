@@ -1,18 +1,18 @@
-﻿
-using ET_6_LuckyTicket.Logics;
+﻿using ET_6_LuckyTicket.Logics;
 using ET_6_LuckyTicket.Logics.Determinators;
+
 using Xunit;
 
-namespace ET_6_UnitTests.Determinators
+namespace ET_6_UnitTests.DeterminatorsTests
 {
-    public class MoskowLuckyTicketDeterminatorTests
+    public class PiterLuckyTicketDeterminatorTests
     {
         [Fact]
-        public void IsLuckyTicket_NotLuckyTicketNumber555000Digit6_False()
+        public void IsLuckyTicket_NotLuckyTicketNumber505050Digit6_False()
         {
             //arrange          
-            var determinator = new MoskowLuckyTicketDeterminator();
-            int number = 555000;
+            var determinator = new PiterLuckyTicketDeterminator();
+            int number = 505050;
             int digit = 6;
 
             //act
@@ -23,11 +23,11 @@ namespace ET_6_UnitTests.Determinators
         }
 
         [Fact]
-        public void IsLuckyTicket_LuckyTicketNumber123123Digit6_True()
+        public void IsLuckyTicket_LuckyTicketNumber112233Digit6_True()
         {
             //arrange          
-            var determinator = new MoskowLuckyTicketDeterminator();
-            int number = 123123;
+            var determinator = new PiterLuckyTicketDeterminator();
+            int number = 112233;
             int digit = 6;
 
             //act

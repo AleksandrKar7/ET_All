@@ -5,19 +5,13 @@ namespace ET_5_NumberToText.Data
 {
     public class Parser
     {
-        private readonly BaseValidator validator;
-        public Parser(BaseValidator validator)
+        public static InputDTO Parse(string[] args)
         {
-            this.validator = validator;
-        }
-
-        public InputDTO Parse(string[] args)
-        {
-            if (validator.IsEmptyArr(args))
+            if (!BaseValidator.IsNotEmptyArgs(args))
             {
-                throw new NullReferenceException("Array of parameters is null"); //81
+                throw new NullReferenceException("Array of parameters is null");
             }
-            if (validator.IsCorrectLength(args, InputDTO.CountParams))
+            if (!BaseValidator.IsCorrectLength(args, InputDTO.CountParams))
             {
                 throw new ArgumentException(
                     "The number of parameters is incorrect. " 

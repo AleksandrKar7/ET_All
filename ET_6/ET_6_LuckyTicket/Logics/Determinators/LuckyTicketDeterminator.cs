@@ -6,12 +6,6 @@ namespace ET_6_LuckyTicket.Logics.Determinators
     public abstract class LuckyTicketDeterminator
     {
         public abstract string Name { get; set; }
-        //public abstract string[] Names { get; set; }
-        //public abstract string GetNames();
-        //public abstract bool IsHisName(string name);
-        //{
-        //    return Names.Contains(name);
-        //}
 
         public abstract bool IsLuckyTicket(Ticket ticket);
 

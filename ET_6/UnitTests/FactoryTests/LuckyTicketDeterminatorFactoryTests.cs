@@ -1,9 +1,9 @@
-﻿using Xunit;
-
+﻿
 using ET_6_LuckyTicket.Logics.Determinators;
 using ET_6_LuckyTicket.Logics.Factory;
+using Xunit;
 
-namespace ET_6_UnitTests.Factory
+namespace ET_6_UnitTests.FactoryTests
 {
     public class LuckyTicketDeterminatorFactoryTests
     {

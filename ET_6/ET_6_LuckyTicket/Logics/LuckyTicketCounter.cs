@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 using ET_6_LuckyTicket.Logics.Factory;
 
@@ -18,21 +17,6 @@ namespace ET_6_LuckyTicket.Logics
             this.factory = factory;
         }
 
-        public int[] GetRangeCountLuckyTickets(string[] algorithmNames,
-            int start = DefaultStart, int end = DefaultEnd,
-            int countDigits = DefaultCountDigits)
-        {
-            List<int> result = new List<int>();
-
-            foreach(string algorithm in algorithmNames)
-            {
-                result.Add(GetCountLuckyTickets(algorithm,
-                    start, end, countDigits));
-            }
-
-            return result.ToArray();
-        }
-
         public int GetCountLuckyTickets(string algorithmName,
             int start = DefaultStart, int end = DefaultEnd,
             int countDigits = DefaultCountDigits)
@@ -44,7 +28,7 @@ namespace ET_6_LuckyTicket.Logics
             if(!Ticket.IsRealTicket(start, DefaultCountDigits) || 
                 !Ticket.IsRealTicket(end, DefaultCountDigits))
             {
-                throw new ArgumentException("");
+                throw new ArgumentException("Range are invalid");
             }
 
             var determinator = factory.CreateDeterminator(algorithmName);

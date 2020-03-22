@@ -1,6 +1,6 @@
 ﻿using System;
 
-using ET_5_NumberToText.Logics.Translator;
+using ET_5_NumberToText.Logics.Translators;
 using Xunit;
 
 namespace ET_5_UnitTests.TranslatorTests

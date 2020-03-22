@@ -1,16 +1,12 @@
-﻿using System;
+﻿using ET_6_LuckyTicket.Data;
+using ET_6_LuckyTicket.Logics;
+using ET_6_LuckyTicket.Logics.Factory;
 
-using ConsoleUILibrary;
-using ET_5_NumberToText.Data;
-using ET_5_NumberToText.Logics;
-using ET_5_NumberToText.Logics.Translators;
-using ValidatorLibrary;
-
-namespace ET_5_NumberToText
+namespace ET_6_LuckyTicket
 {
     class ProgramController
     {
-        public void ExecuteProgram(string[] args)
+        public static void ExecuteProgram(string[] args)
         {
             bool isNewTry = false;
 
@@ -28,7 +24,7 @@ namespace ET_5_NumberToText
                         + "Input data is not valid");
 
                     ConsoleUI.ShowMessage("Your data is not valid");
-                    
+
                     if (!ConsoleUI.AskСonfirmation("Do you want to retype them?",
                         new string[] { "YES", "Y" }))
                     {
@@ -47,41 +43,31 @@ namespace ET_5_NumberToText
                     continue;
                 }
 
-                InputDTO inputDTO = Parser.Parse(args);
-                NumberToTextConverter converter;
-
-                Logger.Log.Debug("ProgramController: "
-                    + "Type of translator selected: " 
-                    + inputDTO.Algorithm.ToString());
-
-                switch (inputDTO.Algorithm)
+                InputDTO inputData = Parser.Parse(args);
+                if (inputData.Algorithm == 0)
                 {
-                    case InputDTO.Algorithms.English:
-                        converter = new EnglishNumberToTextConverter();
+                    Logger.Log.Debug("ProgramController: "
+                        + "The file doesn`t have key words");
+
+                    ConsoleUI.ShowMessage("Your file doesn`t have key words");
+                    if (!ConsoleUI.AskСonfirmation("Do you want to choose another file?",
+                        new string[] { "YES", "Y" }))
+                    {
                         break;
-                    default:
-                        converter = new EnglishNumberToTextConverter();
-                        break;
+                    }
+
+                    args = ConsoleUI.AskInputParams();
+
+                    continue;
                 }
 
-                NumberTranslator translator = new NumberTranslator(converter);
+                var factory = new LuckyTicketDeterminatorFactory();
+                var counter = new LuckyTicketCounter(factory);
 
-                if (translator.CanConvertToText(inputDTO.Number))
-                {
-                    ConsoleUI.ShowMessage(
-                        translator.ConvertToText(inputDTO.Number));
-                }
-                else
-                {
-                    Logger.Log.InfoFormat("ProgramController: "
-                        + "translator {0} can't convert {1}"
-                        , inputDTO.Algorithm.ToString()
-                        , inputDTO.Number);
+                ConsoleUI.ShowMessage("Number of lucky tickets: "
+                    + inputData.Algorithm + " - " 
+                    + counter.GetCountLuckyTickets(inputData.Algorithm.ToString()));
 
-                    ConsoleUI.ShowMessage(
-                        "This converter can't convert the number. " +
-                        "The number is too big.");
-                }
 
                 if (ConsoleUI.AskСonfirmation("Do you want to continue?",
                     new string[] { "YES", "Y" }))

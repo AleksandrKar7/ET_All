@@ -1,26 +1,23 @@
 ﻿using System;
 using System.IO;
 
-using log4net;
 
 namespace ValidatorLibrary
 {
-    public abstract class BaseValidator
+    public class BaseValidator
     {
-        public abstract bool IsValid(string[] args);
+        public static bool IsNotEmptyArgs(string[] args)
+        {
+            return args != null;
+        }
 
-        public bool IsEmptyArr(string[] args)
+        public static bool DoesNotContainNull(string[] args)
         {
             if(args == null)
             {
                 return false;
             }
 
-            return true;
-        }
-
-        public bool DoesNotContainNull(string[] args)
-        {
             for(int i = 0; i < args.Length; i++)
             {
                 if (args[i] == null)
@@ -32,41 +29,30 @@ namespace ValidatorLibrary
             return true;
         }
 
-        public bool IsCorrectLength(string[] args, int expectedLength)
+        public static bool IsCorrectLength(string[] args, int expectedLength)
         {
-            if (args.Length != expectedLength)
+            if(args == null)
             {
                 return false;
             }
-
-            return true;
+            return args.Length == expectedLength;
         }
 
-        public bool IsCorrectLength(string[] args, int minLength, int maxLength)
+        public static bool IsCorrectLength(string[] args, int minLength, int maxLength)
         {
-            if (args.Length < minLength)
+            if (args == null)
             {
                 return false;
             }
-            if (args.Length > maxLength)
-            {
-                return false;
-            }
-
-            return true;
+            return args.Length >= minLength && args.Length <= maxLength;
         }
 
-        public bool DoesFileExist(string filePath)
+        public static bool DoesFileExist(string filePath)
         {
-            if (!File.Exists(filePath))
-            {
-                return false;
-            }
-
-            return true;
+            return File.Exists(filePath);
         }
 
-        public bool CanParseToInt16(string str, bool onlyPositive)
+        public static bool CanParseToInt16(string str, bool onlyPositive)
         {
             Int16 temp;
             if (!Int16.TryParse(str, out temp))
@@ -81,7 +67,7 @@ namespace ValidatorLibrary
             return true;
         }
 
-        public bool CanParseToInt32(string str, bool onlyPositive)
+        public static bool CanParseToInt32(string str, bool onlyPositive)
         {
             Int32 temp;
             if (!Int32.TryParse(str, out temp))
@@ -96,7 +82,7 @@ namespace ValidatorLibrary
             return true;
         }
 
-        public bool CanParseToInt64(string str, bool onlyPositive)
+        public static bool CanParseToInt64(string str, bool onlyPositive)
         {
             Int64 temp;
             if (!Int64.TryParse(str, out temp))
@@ -111,10 +97,14 @@ namespace ValidatorLibrary
             return true;
         }
 
-        public bool CanParseToDouble(string str, bool onlyPositive)
+        public static bool CanParseToDouble(string str, bool onlyPositive)
         {
             Double temp;
             if (!Double.TryParse(str, out temp))
+            {
+                return false;
+            }
+            if (Double.IsInfinity(temp))
             {
                 return false;
             }
@@ -126,22 +116,15 @@ namespace ValidatorLibrary
             return true;
         }
 
-        public bool DoesContainEnum(string str, Type enumType)
+        public static bool DoesContainEnum(string str, Type enumType)
         {
-            return DoesContainEnum(str, Enum.GetValues(enumType));
-        }
-
-        public bool DoesContainEnum(string str, Array enumArr)
-        {
-            foreach (var item in enumArr)
+            if(str == null || enumType == null 
+                || enumType.BaseType.Name != "Enum")
             {
-                if(str == item.ToString())
-                {
-                    return true;
-                }
+                return false;
             }
 
-            return false;
+            return Enum.IsDefined(enumType, str);
         }
     }
 }

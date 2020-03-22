@@ -1,22 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 
 namespace ET_6_LuckyTicket.Data
 {
     static class Parser
     {
-        public static InputData Parse(string[] args)
+        public static InputDTO Parse(string[] args)
         {
             if (args == null)
             {
                 throw new NullReferenceException("Array of parameters is null"); //81
             }
-            if(args.Length != InputData.CountParams)
+            if(args.Length != InputDTO.CountParams)
             {
                 throw new ArgumentException(
                     "The number of parameters is incorrect. " +
-                    "There must be: " + InputData.CountParams);
+                    "There must be: " + InputDTO.CountParams);
             }
             if (!File.Exists(args[0]))
             {
@@ -24,35 +23,35 @@ namespace ET_6_LuckyTicket.Data
             }
 
             StreamReader reader = new StreamReader(args[0]);
-            var algorithms = new List<string>();
             string str;
+            InputDTO.Algorithms algorithm = 0;
+            bool doesFoundItem = false;
+            
             while (!reader.EndOfStream)
             {
-                str = reader.ReadLine();
-                var item = FindAlgorithmInLine(str);
-                if (item != 0)
+                str = reader.ReadLine().Trim();
+                if(Enum.TryParse(str, out algorithm))
                 {
-                    algorithms.Add(item.ToString());
+                    if (doesFoundItem)
+                    {
+                        throw new ArgumentException(
+                            "File contains several algorithms");
+                    }
+                    doesFoundItem = true;
                 }
             }
 
-            return new InputData
+            if(doesFoundItem == false)
+            {
+                throw new ArgumentException(
+                    "The file dosen't contain an algorithm");
+            }
+
+            return new InputDTO
             {
                 FilePath = args[0],
-                AlgorithmsArr = algorithms.ToArray()
+                Algorithm = algorithm
             };
-        }
-
-        public static InputData.Algorithms FindAlgorithmInLine(string line)
-        {
-            foreach(InputData.Algorithms item in Enum.GetValues(typeof(InputData.Algorithms)))
-            {
-                if (line.Contains(item.ToString()))
-                {
-                    return item;
-                }
-            }
-            return 0;
         }
     }
 }

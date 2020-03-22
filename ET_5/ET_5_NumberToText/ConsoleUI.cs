@@ -8,7 +8,7 @@ namespace ET_5_NumberToText
 {
     public class ConsoleUI : BaseConsoleUI
     {
-        public override string[] AskInputParams()
+        public static string[] AskInputParams()
         {
             string[] result = new string[InputDTO.CountParams];
 

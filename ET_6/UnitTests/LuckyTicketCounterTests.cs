@@ -1,8 +1,6 @@
-﻿using ET_6_LuckyTicket.Logics;
+﻿
+using ET_6_LuckyTicket.Logics;
 using ET_6_LuckyTicket.Logics.Factory;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace ET_6_UnitTests

@@ -15,19 +15,7 @@ namespace ET_6_LuckyTicket.Logics
 
         public bool IsRealTicket()
         {
-            return IsRealTicket(Number, CountDigits);
-            
-            
-            //if (Number < 0)
-            //{
-            //    return false;
-            //}
-            //if (Number > Math.Pow(10, CountDigits))
-            //{
-            //    return false;
-            //}
-            //return true;
-            
+            return IsRealTicket(Number, CountDigits);           
         }
 
         public static bool IsRealTicket(int number, int countDigits)

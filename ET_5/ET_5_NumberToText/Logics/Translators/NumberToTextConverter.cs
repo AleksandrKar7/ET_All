@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ET_5_NumberToText.Logics.Translator
+namespace ET_5_NumberToText.Logics.Translators
 {
     public abstract class NumberToTextConverter
     {
@@ -13,7 +13,7 @@ namespace ET_5_NumberToText.Logics.Translator
             if(quantity <= 0)
             {
                 throw new ArgumentException(
-                    "Quantity can't be less than zero");
+                    "Quantity can't be less than one");
             }
 
             number = Math.Abs(number);

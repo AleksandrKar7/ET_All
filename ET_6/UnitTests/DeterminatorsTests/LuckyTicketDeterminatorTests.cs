@@ -1,10 +1,10 @@
 ﻿using System;
 
-using Xunit;
 using ET_6_LuckyTicket.Logics.Determinators;
 using ET_6_LuckyTicket.Logics;
+using Xunit;
 
-namespace ET_6_UnitTests.Determinators
+namespace ET_6_UnitTests.DeterminatorsTests
 {
     public class LuckyTicketDeterminatorTests
     {

@@ -1,20 +1,16 @@
 ﻿using System;
 using System.Linq;
 
-using log4net;
-
 namespace ConsoleUILibrary
 {
-    public abstract class BaseConsoleUI
+    public class BaseConsoleUI
     {
-        public abstract string[] AskInputParams();
-
-        public void ShowMessage(string message)
+        public static void ShowMessage(string message)
         {
             Console.WriteLine(message);
         }
 
-        public int AskMenuItem(string message, string[] menuItems)
+        public static int AskMenuItem(string message, string[] menuItems)
         {
             int i = 1;
             int result = 0;
@@ -27,8 +23,7 @@ namespace ConsoleUILibrary
             }
 
             while(result >= 1 && result <= menuItems.Length)
-            {
-                
+            {            
                 if (!(result >= 1 && result <= menuItems.Length
                     || Int32.TryParse(Console.ReadLine(), out result)))
                 {
@@ -39,7 +34,7 @@ namespace ConsoleUILibrary
             return result;
         }
 
-        public int AskMenuItem(string message, Type enumType)
+        public static int AskMenuItem(string message, Type enumType)
         {
             int result = 0;
             
@@ -63,7 +58,7 @@ namespace ConsoleUILibrary
             return result;          
         }
 
-        public bool? AskСonfirmation(string message)
+        public static bool? AskСonfirmation(string message)
         {
             string text;
             string insturction;
@@ -97,7 +92,7 @@ namespace ConsoleUILibrary
             return null;
         }
 
-        public bool AskСonfirmation(string message, string[] trueArray)
+        public static bool AskСonfirmation(string message, string[] trueArray)
         {
             if (trueArray == null)
             {
@@ -132,7 +127,7 @@ namespace ConsoleUILibrary
             }
         }
 
-        public bool? AskСonfirmation(string message, string[] trueArray, string[] falseArray)
+        public static bool? AskСonfirmation(string message, string[] trueArray, string[] falseArray)
         {
             if (trueArray == null)
             {

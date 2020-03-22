@@ -33,20 +33,32 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\ElementaryTasks\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleMenu.cs" />
-    <Compile Include="Data\InputData.cs" />
+    <Compile Include="ConsoleUI.cs" />
+    <Compile Include="Data\InputDTO.cs" />
     <Compile Include="Data\Parser.cs" />
     <Compile Include="Data\Validator.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Logics\Determinators\LuckyTicketDeterminator.cs" />
     <Compile Include="Logics\Determinators\MoskowLuckyTicketDeterminator.cs" />
     <Compile Include="Logics\Determinators\PiterLuckyTicketDeterminator.cs" />
@@ -55,10 +67,22 @@
     <Compile Include="Logics\LuckyTicketCounter.cs" />
     <Compile Include="Logics\Ticket.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ProgramController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\ConsoleUILibrary\ConsoleUILibrary.csproj">
+      <Project>{0F1E930C-0EB4-43BF-B316-EDBED82AADB8}</Project>
+      <Name>ConsoleUILibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\ValidatorLibrary\ValidatorLibrary.csproj">
+      <Project>{753CC401-99F1-40AB-924A-B08623FA3FF7}</Project>
+      <Name>ValidatorLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,34 +1,41 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using ValidatorLibrary;
 
 namespace ET_6_LuckyTicket.Data
 {
-    static class Validator
+    class Validator : BaseValidator
     {
         public static bool IsValid(string[] args)
         {
-            if (args == null)
-            {
-                return false;
-            }
-            if (args.Length != InputData.CountParams)
-            {
-                return false;
-            }
+            return IsNotEmptyArgs(args)
+                && IsCorrectLength(args, InputDTO.CountParams)
+                && DoesNotContainNull(args)
+                && DoesFileExist(args[0])
+                && DoesFileContainsSingleEnum(args[0]);
+        }
 
-            for (int i = 0; i < args.Length; i++)
+        public static bool DoesFileContainsSingleEnum(string filePath)
+        {
+            StreamReader reader = new StreamReader(filePath);
+            string str;
+            InputDTO.Algorithms algorithm = 0;
+            bool doesFoundItem = false;
+
+            while (!reader.EndOfStream)
             {
-                if (args[i] == null)
+                str = reader.ReadLine().Trim();
+                if (Enum.TryParse(str, out algorithm))
                 {
-                    return false;
+                    if (doesFoundItem)
+                    {
+                        return false;
+                    }
+                    doesFoundItem = true;
                 }
             }
 
-            if (!File.Exists(args[0]))
-            {
-                return false;
-            }
-
-            return true;
+            return doesFoundItem;
         }
     }
 }

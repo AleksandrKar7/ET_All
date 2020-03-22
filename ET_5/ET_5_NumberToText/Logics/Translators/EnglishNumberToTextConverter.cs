@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace ET_5_NumberToText.Logics.Translator
+namespace ET_5_NumberToText.Logics.Translators
 {
     public class EnglishNumberToTextConverter : NumberToTextConverter
     {

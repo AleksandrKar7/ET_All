@@ -52,11 +52,11 @@
     <Compile Include="Data\InputDTO.cs" />
     <Compile Include="Data\Parser.cs" />
     <Compile Include="Logger.cs" />
-    <Compile Include="Logics\Number.cs" />
+    <Compile Include="Logics\NumberTranslator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Logics\Translator\EnglishNumberToTextConverter.cs" />
-    <Compile Include="Logics\Translator\NumberToTextConverter.cs" />
+    <Compile Include="Logics\Translators\EnglishNumberToTextConverter.cs" />
+    <Compile Include="Logics\Translators\NumberToTextConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
