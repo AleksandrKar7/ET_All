@@ -11,7 +11,7 @@ namespace ET_3_Triangles
     {
         static void Main(string[] args)
         {
-            ConsoleMenu.ShowConsoleMenu(args);
+            ProgramController.ExecuteProgram(args);
         }
     }
 }

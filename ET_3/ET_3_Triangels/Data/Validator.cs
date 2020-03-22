@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using ValidatorLibrary;
 
 namespace ET_3_Triangles.Data
 {
-    public static class Validator
+    public class Validator : BaseValidator
     {
         public static bool IsValidRange(string[] args)
         {
-            if (args == null)
+            if (!IsNotEmptyArgs(args))
             {
                 return false;
             }
@@ -33,34 +31,11 @@ namespace ET_3_Triangles.Data
 
         public static bool IsValid(string[] args)
         {
-            if (args == null)
-            {
-                return false;
-            }
-            if (args.Length == 0 || args.Length % InputData.CountParams != 0)
-            {
-                return false;
-            }
-
-            double temp;
-            for (int i = 1; i < args.Length; i++)
-            {
-                if (Double.TryParse(args[i], out temp))
-                {
-                    if (temp < 0)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    return false;
-                }
-            }
-
-            return true;
+            return IsNotEmptyArgs(args)
+                && IsCorrectLength(args, InputData.CountParams)
+                && CanParseToDouble(args[1], true)
+                && CanParseToDouble(args[2], true)
+                && CanParseToDouble(args[3], true);
         }
-
-
     }
 }

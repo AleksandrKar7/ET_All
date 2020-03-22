@@ -13,7 +13,7 @@ namespace ET_4_FileParser
         static void Main(string[] args)
         {
             Logger.Log.Info("Program started");
-            ConsoleMenu.ShowConsoleMenu(args);
+            ProgramController.ExecuteProgram(args);
         }
     }
 }

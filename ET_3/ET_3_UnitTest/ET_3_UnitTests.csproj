@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\ValidatorLibrary\ValidatorLibrary.csproj" />
     <ProjectReference Include="..\ET_3_Triangels\ET_3_Triangles.csproj" />
   </ItemGroup>
 
