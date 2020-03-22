@@ -1,50 +1,89 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="ET_5_NumberToText.Data.InputData" Collapsed="true">
-    <Position X="2.25" Y="0.5" Width="1.5" />
+  <Class Name="ET_5_NumberToText.Data.InputDTO">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="ET_5_NumberToText.Data.InputDTO.Algorithms" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Data\InputDTO.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAQQAAA=</HashCode>
-      <FileName>Data\InputData.cs</FileName>
+      <HashCode>AgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Data\InputDTO.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ET_5_NumberToText.Data.Parser" Collapsed="true">
-    <Position X="0.5" Y="1.5" Width="1.5" />
+  <Class Name="ET_5_NumberToText.Data.Parser">
+    <Position X="2.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Data\Parser.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ET_5_NumberToText.Data.Validator" Collapsed="true">
-    <Position X="4" Y="1.5" Width="1.5" />
+  <Class Name="ET_5_NumberToText.Data.Validator">
+    <Position X="2.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Data\Validator.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ET_5_NumberToText.ConsoleMenu" Collapsed="true">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+  <Class Name="ET_5_NumberToText.Logics.Translators.EnglishNumberToTextConverter">
+    <Position X="2.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgAAAABAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ConsoleMenu.cs</FileName>
+      <HashCode>AAAAAAQEAAAAAAAAAQFQAAAAAAAAEAAAAAIAAABAAAA=</HashCode>
+      <FileName>Logics\Translators\EnglishNumberToTextConverter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ET_5_NumberToText.Logger" Collapsed="true">
-    <Position X="4" Y="0.5" Width="1.5" />
+  <Class Name="ET_5_NumberToText.Logics.Translators.NumberToTextConverter">
+    <Position X="4.5" Y="3.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAACAAAAAAAAAAACAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAQAAAAAAAAAAABAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logics\Translators\NumberToTextConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ET_5_NumberToText.Logics.NumberTranslator">
+    <Position X="7.25" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAQAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Logics\NumberTranslator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ValidatorLibrary.BaseValidator">
+    <Position X="4.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ConsoleUILibrary.BaseConsoleUI">
+    <Position X="9.25" Y="0.5" Width="2.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ET_5_NumberToText.Logger" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Logger.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ET_5_NumberToText.Program" Collapsed="true">
-    <Position X="2.25" Y="1.5" Width="1.5" />
+  <Class Name="ET_5_NumberToText.ConsoleUI">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ConsoleUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ET_5_NumberToText.Program">
+    <Position X="7.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ConsoleLibrary.Validator" Collapsed="true">
-    <Position X="6.25" Y="1.5" Width="1.5" />
-    <TypeIdentifier />
+  <Class Name="ET_5_NumberToText.ProgramController">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>ProgramController.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

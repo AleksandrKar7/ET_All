@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using ValidatorLibrary;
 
 namespace ET_2_Envelopes.Data
 {
@@ -10,11 +8,11 @@ namespace ET_2_Envelopes.Data
     {
         public static InputData Parse(string[] args)
         {
-            if(args == null)
+            if (!BaseValidator.IsNotEmptyArgs(args))
             {
                 throw new NullReferenceException("Array of parameters is null"); //81
             }
-            if(args.Length != InputData.CountParams)
+            if (!BaseValidator.IsCorrectLength(args, InputData.CountParams))
             {
                 throw new ArgumentException(
                     "The number of parameters is incorrect. " +

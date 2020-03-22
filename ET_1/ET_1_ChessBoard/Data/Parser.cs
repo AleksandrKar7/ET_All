@@ -1,4 +1,5 @@
 ﻿using System;
+using ValidatorLibrary;
 
 namespace ET_1_ChessBoard.Data
 {
@@ -6,11 +7,11 @@ namespace ET_1_ChessBoard.Data
     {
         public static InputData Parse(string[] args)
         {
-            if (args == null)
+            if (!BaseValidator.IsNotEmptyArgs(args))
             {
                 throw new NullReferenceException("Array of parameters is null"); //81
             }
-            if (args.Length != InputData.CountParams)
+            if (!BaseValidator.IsCorrectLength(args, InputData.CountParams))
             {
                 throw new ArgumentException(
                     "The number of parameters is incorrect. " +

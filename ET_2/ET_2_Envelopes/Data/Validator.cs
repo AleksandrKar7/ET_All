@@ -1,41 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ValidatorLibrary;
 
 namespace ET_2_Envelopes.Data
 {
-    public static class Validator
+    public class Validator : BaseValidator
     {
         public static bool IsValid(string[] args)
         {
-            if (args == null)
-            {
-                return false;
-            }
-            if(args.Length != InputData.CountParams)
-            {
-                return false;
-            }
-
-            double temp;
-            for(int i = 0; i < args.Length; i++)
-            {
-                if(Double.TryParse(args[i], out temp))
-                {
-                    if(temp < 0)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    return false;
-                }
-            }
-
-            return true;
+            return IsNotEmptyArgs(args)
+                && IsCorrectLength(args, InputData.CountParams)
+                && CanParseToDouble(args[0], true)
+                && CanParseToDouble(args[1], true)
+                && CanParseToDouble(args[2], true)
+                && CanParseToDouble(args[3], true);
         }
     }
 }

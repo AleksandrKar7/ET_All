@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ET_6_LuckyTicket.Data.InputDTO">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="ET_6_LuckyTicket.Data.InputDTO.Algorithms" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Data\InputDTO.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAQAAAA=</HashCode>
+      <FileName>Data\InputDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ET_6_LuckyTicket.Data.Parser">
+    <Position X="2.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Parser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ET_6_LuckyTicket.Data.Validator">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAiAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Validator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ET_6_LuckyTicket.Logics.Determinators.LuckyTicketDeterminator">
+    <Position X="4.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAQAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logics\Determinators\LuckyTicketDeterminator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ET_6_LuckyTicket.Logics.Determinators.MoskowLuckyTicketDeterminator">
+    <Position X="2.75" Y="5.75" Width="1.5" />
+    <InheritanceLine Type="ET_6_LuckyTicket.Logics.Determinators.LuckyTicketDeterminator" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="4.75" Y="4.125" />
+        <Point X="4.503" Y="4.125" />
+        <Point X="4.503" Y="5.596" />
+        <Point X="3.5" Y="5.596" />
+        <Point X="3.5" Y="5.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logics\Determinators\MoskowLuckyTicketDeterminator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ET_6_LuckyTicket.Logics.Determinators.PiterLuckyTicketDeterminator">
+    <Position X="2.75" Y="3.75" Width="1.5" />
+    <InheritanceLine Type="ET_6_LuckyTicket.Logics.Determinators.LuckyTicketDeterminator" FixedFromPoint="true">
+      <Path>
+        <Point X="4.75" Y="3.938" />
+        <Point X="4.25" Y="3.938" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logics\Determinators\PiterLuckyTicketDeterminator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ET_6_LuckyTicket.Logics.LuckyTicketCounter">
+    <Position X="6.75" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAQAAAQAAAAI=</HashCode>
+      <FileName>Logics\LuckyTicketCounter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ET_6_LuckyTicket.Logics.Ticket">
+    <Position X="9.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAACAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Logics\Ticket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ET_6_LuckyTicket.Logger" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ET_6_LuckyTicket.ConsoleUI">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ConsoleUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ET_6_LuckyTicket.Program">
+    <Position X="7.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ET_6_LuckyTicket.ProgramController">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>ProgramController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ValidatorLibrary.BaseValidator">
+    <Position X="4.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ConsoleUILibrary.BaseConsoleUI">
+    <Position X="9.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ET_6_LuckyTicket.Logics.Factory.LuckyTicketDeterminatorFactory">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logics\Factory\LuckyTicketDeterminatorFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="ET_6_LuckyTicket.Logics.Factory.ILuckyTicketDeterminatorFactory">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logics\Factory\ILuckyTicketDeterminatorFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

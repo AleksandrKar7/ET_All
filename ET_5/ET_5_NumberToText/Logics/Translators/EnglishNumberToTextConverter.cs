@@ -38,10 +38,9 @@ namespace ET_5_NumberToText.Logics.Translators
 
         #endregion
 
-
         public override bool CanConvertNumber(long number)
         {
-            if(Math.Abs(number) > Math.Pow(10, (numberModifier.Length - 1) * DefaultQuanity) - 1)
+            if(Math.Abs(number) > Math.Pow(10, (numberModifier.Length) * DefaultQuanity) - 1)
             {
                 return false;
             }
