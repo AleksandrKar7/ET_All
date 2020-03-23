@@ -3,7 +3,7 @@
 using ET_3_Triangles;
 using Xunit;
 
-namespace ET_3_UnitTest.Logics.LogicTests
+namespace ET_3_UnitTests.LogicTests
 {
     public class FiguresSorterTests
     {

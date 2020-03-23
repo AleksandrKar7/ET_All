@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleMenu.cs" />
+    <Compile Include="ConsoleUI.cs" />
     <Compile Include="Data\InputData.cs" />
     <Compile Include="Data\Parser.cs" />
     <Compile Include="Data\Validator.cs" />
@@ -51,11 +51,21 @@
     <Compile Include="Logics\ISquareSeriesFinder.cs" />
     <Compile Include="Logics\MathFinder.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ProgramController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\ConsoleUILibrary\ConsoleUILibrary.csproj">
+      <Project>{0F1E930C-0EB4-43BF-B316-EDBED82AADB8}</Project>
+      <Name>ConsoleUILibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\ValidatorLibrary\ValidatorLibrary.csproj">
+      <Project>{753CC401-99F1-40AB-924A-B08623FA3FF7}</Project>
+      <Name>ValidatorLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

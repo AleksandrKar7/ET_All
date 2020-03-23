@@ -11,16 +11,7 @@ namespace ET_7_8_Square_Fibonacci
     {
         static void Main(string[] args)
         {
-            ConsoleMenu.ShowConsoleMenu(args);
-
-            //MathFinder math = new MathFinder();
-            
-            //foreach(int i in math.GetFibonacciSeries(5, 100))
-            //{
-            //    Console.WriteLine(i + " ");
-            //}
-
-            //Console.ReadLine();
+            ProgramController.ExecuteProgram(args);
         }
     }
 }

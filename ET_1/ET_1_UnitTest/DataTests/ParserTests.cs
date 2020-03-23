@@ -3,7 +3,7 @@
 using ET_1_ChessBoard.Data;
 using Xunit;
 
-namespace ET_1_UnitTests.Data
+namespace ET_1_UnitTests.DataTests
 {
     public class ParserTests
     {

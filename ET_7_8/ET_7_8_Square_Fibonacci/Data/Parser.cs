@@ -1,4 +1,5 @@
 ﻿using System;
+using ValidatorLibrary;
 
 namespace ET_7_8_Square_Fibonacci.Data
 {
@@ -6,12 +7,12 @@ namespace ET_7_8_Square_Fibonacci.Data
     {
         public static InputData ParseArgs(string[] args)
         {
-            if (args == null)
+            if (!BaseValidator.IsNotEmptyArgs(args))
             {
                 throw new NullReferenceException("Array of parameters is null"); //81
             }
-            if (args.Length < InputData.MinCountParams ||
-                 args.Length > InputData.MaxCountParams)
+            if (!BaseValidator.IsCorrectLength(args
+                , InputData.MinCountParams, InputData.MaxCountParams))
             {
                 throw new ArgumentException(
                     "The number of parameters is incorrect. " +
@@ -19,7 +20,7 @@ namespace ET_7_8_Square_Fibonacci.Data
                     "or " + InputData.MaxCountParams);
             }
 
-            if(args.Length == InputData.MaxCountParams)
+            if(BaseValidator.IsCorrectLength(args, InputData.MaxCountParams))
             {
                 return new InputData
                 {

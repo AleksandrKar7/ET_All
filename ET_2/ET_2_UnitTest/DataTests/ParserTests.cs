@@ -3,7 +3,7 @@
 using ET_2_Envelopes.Data;
 using Xunit;
 
-namespace ET_2_UnitTest.DataTests
+namespace ET_2_UnitTests.DataTests
 {
     public class ParserTests
     {

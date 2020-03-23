@@ -3,7 +3,7 @@
 using ET_3_Triangles.Data;
 using Xunit;
 
-namespace ET_3_UnitTest.DataTests
+namespace ET_3_UnitTests.DataTests
 {
     public class ParserTests
     {
